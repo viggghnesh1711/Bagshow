@@ -1,7 +1,7 @@
 const multer = require('multer')
 const path = require('path')
 const crypto = require('crypto')
-const { storage } = require('./cloudinaryConfig');
+// const { storage } = require('./cloudinaryConfig');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
