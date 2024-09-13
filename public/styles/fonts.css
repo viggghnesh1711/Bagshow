@@ -1,0 +1,89 @@
+@font-face {
+    font-family: 'one'; 
+    src: url("/fonts/NeueHaasDisplayMediu.ttf") format('truetype'); 
+  }
+  @font-face {
+    font-family: 'two'; 
+    src: url("/fonts/Poppins-Medium.ttf") format('truetype'); 
+  }
+
+h1{
+    font-family:one;
+}
+h2{
+    font-family: two;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: two;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+#bg-video::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgb(0, 0, 0), rgb(0, 0, 0));
+  z-index: 1;
+}
+
+#except{
+  margin-top:30%;
+}
+.content {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding: 5%;
+  z-index: 10;
+  color: white;
+  text-align: center;
+}
+
+.h-90p {
+  height: 90%;
+}
+
+.h-95p {
+  height: 92%;
+}
+
+.h-70p {
+  height:70%;
+}
+
+.h-80p {
+  height:80%;
+}
+
+.ptp{
+  padding-top: 18%;
+}
+
+.w-45p { 
+  width: 48%;
+}

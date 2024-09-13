@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/fonts.css">
+    <!-- <link rel="stylesheet" href="/styles/style.css"> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,200,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,200,0,0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+</head>
+<body class="bg-stone-950 p-4 relative h-screen">
+    <% if(owner){ %>
+        <%- include('../partials/sucess') %>
+        <div class="flex justify-center"> 
+            <div id="btndiv" class="flex items-center bg-black rounded-full w-3/5">
+                <button class="flex-1 text-black bg-white rounded-full"><h2 class="text-sm px-3 py-2"><a href="user/userprofile">User</a></h2></button>
+                <button class="flex-1 text-white bg-black rounded-full"><h2 class="text-sm px-3 py-2"><a href="/owner/ownerprofile">Owner</a></h2></button>
+            </div>
+        </div>
+        <div class=" flex flex-col justify-evenly items-center pt-10">
+            <img src="/images/149071.png" class="h-20 w-20 rounded-full object-cover">
+            <div class="flex items-center p-3">
+            <h1 class="text-stone-400 mx-1 ">User:</h1>
+            <h2 class="text-stone-100  text-lg"><%= username %></h2>
+        </div>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 h-70p rounded-t-3xl w-full bg-stone-200 p-10 pt-12">
+            <div class="flex flex-col justify-between items-start gap-5">
+                <div id="userpage" class="flex flex-col justify-between items-start gap-5 w-full">
+                   
+                    <a href="/user/whishlist" class="p-4 bg-stone-300 text-stone-600 text-xl rounded-xl flex items-center gap-3 w-full">
+                        <i class="ri-heart-line"></i>
+                        <h2>whishlist</h2>
+                    </a>
+                    <a href="/user/orders" class="p-4 bg-stone-300 text-stone-600 text-xl rounded-xl flex items-center gap-3 w-full">
+                        <i class="ri-history-line"></i>
+                        <h2>Orders </h2>
+                    </a>
+                    <a href="/user/signout" class="p-4 bg-stone-300 text-stone-600 text-xl rounded-xl flex items-center gap-3 w-full">
+                        <i class="ri-logout-box-r-line"></i>
+                        <h2>Sign out</h2>
+                    </a>
+                    <a href="/user/manual" class="p-4 bg-stone-300 text-stone-600 text-xl rounded-xl flex items-center gap-3 w-full">
+                        <i class="ri-edit-box-line"></i>
+                        <h2>Manual</h2>
+                    </a>
+                </div>
+        </div>
+            <% } else { %>
+                <div class="flex justify-center"> 
+                    <div id="btndiv" class="flex items-center bg-black rounded-full w-3/5">
+                        <button id="userButton" class="flex-1 text-black bg-white rounded-full"><h2 class="text-sm px-3 py-2">User</h2></button>
+                        <button id="ownerButton" class="flex-1 text-white bg-black rounded-full"><h2 class="text-sm px-3 py-2">Owner</h2></button>
+                    </div>
+                </div>
+                    <div id="pfimage" class=" flex flex-col justify-evenly items-center pt-10">
+                        <img src="/images/149071.png" class="h-20 w-20 rounded-full object-cover">
+                        <div class="flex items-center p-3">
+                        <h1 class="text-stone-400 mx-1 ">User:</h1>
+                        <h2 class="text-stone-100  text-lg"><%= username%></h2>
+                    </div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 h-70p rounded-t-3xl w-full bg-stone-200 p-10 pt-12">
+                        <div id="userpage" class="flex flex-col justify-between items-start gap-5">
+                         
+                            <a href="/user/whishlist" class="p-4 bg-stone-300 text-stone-600 text-xl rounded-xl flex items-center gap-3 w-full">
+                                <i class="ri-heart-line"></i>
+                                <h2>Whishlist</h2>
+                            </a>
+                            <a href="/user/orders" class="p-4 bg-stone-300 text-stone-600 text-xl rounded-xl flex items-center gap-3 w-full">
+                                <i class="ri-history-line"></i>
+                                <h2>Orders</h2>
+                            </a>
+                            <a href="/user/signout" class="p-4 bg-stone-300 text-stone-600 text-xl rounded-xl flex items-center gap-3 w-full">
+                                <i class="ri-logout-box-r-line"></i>
+                                <h2>Sign out</h2>
+                            </a>
+                            <a href="/user/manual" class="p-4 bg-stone-300 text-stone-600 text-xl rounded-xl flex items-center gap-3 w-full">
+                                <i class="ri-edit-box-line"></i>
+                                <h2>Manual</h2>
+                            </a>
+                        </div>
+                        <div id="ownerpage" class="hidden flex-col justify-start items-center h-full pt-10">
+                            <h1 class="text-xl text-stone-400">Dont have an Owner Account ?</h1>
+                            <a href="/owner/createowner" class="text-xl bg-stone-900 text-stone-200 px-4 py-2 rounded-lg mt-3"><h2>Create one</h2></a>
+                         </div>
+                    </div>
+                <%   } %>
+               <%- include('../partials/navbar') %>
+    <script src="/js/script.js"></script>
+</body>
+</html>

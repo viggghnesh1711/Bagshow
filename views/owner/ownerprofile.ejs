@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/fonts.css">
+    <!-- <link rel="stylesheet" href="/styles/style.css"> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,200,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,200,0,0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+</head>
+<body class="bg-stone-950 p-4 relative h-screen">
+  <div class="flex justify-center"> 
+    <div id="btndiv" class="flex items-center bg-black rounded-full w-3/5">
+        <button class="flex-1 text-white bg-black rounded-full"><h2 class="text-sm px-3 py-2"><a href="/user/userprofile">User</a></h2></button>
+      <button class="flex-1 text-black bg-white rounded-full"><h2 class="text-sm px-3 py-2"><a href="owner/ownerprofile">Owner</a></h2></button>
+    </div>
+</div>
+<div class=" flex flex-col justify-evenly items-center pt-10">
+    <img src="/images/download (4).jpg" class="h-20 w-20 rounded-full object-cover">
+    <div class="flex items-center p-3">
+    <h1 class="text-stone-400 mx-1 ">Shop:</h1>
+    <h2 class="text-stone-100  text-lg"><%= owner.shopname %></h2>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 right-0 h-70p rounded-t-3xl w-full bg-stone-200 p-10 pt-11">
+    <div class="container mx-auto ">
+        <div class="grid grid-cols-2 gap-5">
+        <a href="/product/createproduct">
+            <div class="bg-stone-300 px-2 py-4 border text-stone-600 text-lg rounded-xl flex flex-col items-center">
+                <i class="ri-add-circle-line text-3xl"></i>
+                <h2 class="tracking-tighter">Add</h2>
+            </div>
+        </a>
+        <a href="/product/editproductslist">
+            <div class="bg-stone-300 px-2 py-4 border text-stone-600 text-lg rounded-xl flex flex-col items-center">
+                <i class="ri-loop-right-line text-3xl"></i>
+                <h2 class="tracking-tighter">Update</h2>
+            </div>
+        </a>
+        <a href="/product/removeproduct">
+            <div class="bg-stone-300 px-2 py-4 border text-stone-600 text-lg rounded-xl flex flex-col items-center">
+                <i class="ri-delete-bin-line text-3xl"></i>
+                <h2 class="tracking-tighter">Remove</h2>
+            </div>
+        </a>
+        <a href="/owner/dashboard">
+            <div class="bg-stone-300 px-2 py-4 border text-stone-600 text-lg rounded-xl flex flex-col items-center">
+                <i class="ri-dashboard-2-line text-3xl"></i>
+                <h2 class="tracking-tighter">Dashboard</h2>
+            </div>
+        </a>
+        <a href="/owner/profile">
+            <div class="bg-stone-300 px-2 py-4 border text-stone-600 text-lg rounded-xl flex flex-col items-center">
+                <i class="ri-profile-line text-3xl"></i>
+                <h2 class="tracking-tighter">Profile</h2>
+            </div>
+        </a>
+        <a href="/owner/deleteowner">
+            <div class="bg-stone-300 px-2 py-4 border text-stone-600 text-lg rounded-xl flex flex-col items-center">
+                <i class="ri-close-circle-line text-3xl"></i>
+                <h2 class="tracking-tighter">Delete</h2>
+            </div>
+        </a>
+        </div>
+    </div>
+</div>
+<%- include('../partials/navbar') %>
+    <script src="/js/script.js"></script>
+</body>
+</html>

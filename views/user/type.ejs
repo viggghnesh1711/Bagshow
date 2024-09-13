@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/fonts.css">
+    <!-- <link rel="stylesheet" href="/styles/style.css"> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,200,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,200,0,0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+</head>
+
+<body class="bg-stone-300 relative p-4 pb-0 overflow-y-auto h-full">
+    <form action="" method="" class=" flex justify-between">
+        <input type="search" name="search" placeholder="search..." class=" bg-stone-200 tracking-wider text-stone-900 border-none w-4/5 outline-none p-2 rounded-xl text-lg">
+        <button type="submit" class="bg-stone-900 text-white px-3 py-1 text-lg rounded-lg"><i class="ri-search-line"></i></button>
+    </form>
+    <div class="overflow-x-auto whitespace-nowrap mx-2 py-3 mt-2 scrollable no-scrollbar flex gap-3">
+        <a href="/home" class="navall px-4 py-1 rounded-2xl border-stone-900 text-stone-900 text-sm border-2">All</a>
+        <a href="/user/products/Backpacks" 
+        class="<%= type === 'Backpacks' ? 'text-stone-100 bg-stone-900' : 'text-stone-900 border-stone-900' %> px-4 py-1 rounded-2xl text-sm border-2">
+        Backpacks
+        </a>     
+        <a href="/user/products/Handbags" 
+        class="<%= type === 'Handbags' ? 'text-stone-100 bg-stone-900' : 'text-stone-900 border-stone-900' %> px-4 py-1 rounded-2xl text-sm border-2">
+        Handbags
+        </a>     
+        <a href="/user/products/Laptopbags" 
+        class="<%= type === 'Laptopbags' ? 'text-stone-100 bg-stone-900' : 'text-stone-900 border-stone-900' %> px-4 py-1 rounded-2xl text-sm border-2">
+        Laptopbags
+        </a> 
+        <a href="/user/products/Duffelbags" 
+        class="<%= type === 'Duffelbags' ? 'text-stone-100 bg-stone-900' : 'text-stone-900 border-stone-900' %> px-4 py-1 rounded-2xl text-sm border-2">
+        Duffelbags
+        </a> 
+        <a href="/user/products/Suitcases" 
+        class="<%= type === 'Suitcases' ? 'text-stone-100 bg-stone-900' : 'text-stone-900 border-stone-900' %> px-4 py-1 rounded-2xl text-sm border-2">
+        Suitcases
+        </a> 
+        <a href="/user/products/Luggagebags" 
+        class="<%= type === 'Luggagebags' ? 'text-stone-100 bg-stone-900' : 'text-stone-900 border-stone-900' %> px-4 py-1 rounded-2xl text-sm border-2">
+        Luggagebags
+        </a> 
+        <a href="/user/products/Others" 
+        class="<%= type === 'Others' ? 'text-stone-100 bg-stone-900' : 'text-stone-900 border-stone-900' %> px-4 py-1 rounded-2xl text-sm border-2">
+        Others
+        </a> 
+    </div>
+    <div class="absolute top-32 right-7 ">
+        <a href="/user/whishlist"><button class="bg-stone-900 text-white px-3 py-2 text-xl rounded-lg mr-3"><i class="ri-heart-line"></i></button></a>
+        <a href="#"><button class="fill bg-stone-900 text-white px-3 py-2 text-xl rounded-lg"><i class="ri-dashboard-fill"></i></button></a>
+    </div>
+    <div class="h-full bg-stone-300 absolute w-3/4 top-0 right-0 z-20 transform translate-x-full transition-transform duration-500 ease-in-out" id="myDiv">
+        <div class="flex py-3 justify-between items-center px-5">
+        <button id="close" class=" bg-stone-300 text-stone-900 px-2 py-1 rounded-lg"><i class="ri-close-large-line"></i></button>
+        <h1 class="text-lg">Filter</h1>
+    </div>
+        <div class="p-5">
+            <form action="/submit" method="POST" class="space-y-6">
+                <fieldset class="space-y-3">
+                    <legend class="font-semibold">Sort by Price</legend>
+        
+                    <div class="flex items-center space-x-2">
+                        <input type="radio" id="highToLow" name="sortPrice" value="highToLow" class="form-radio text-blue-600">
+                        <label for="highToLow" class="text-black">High to Low</label>
+                    </div>
+        
+                    <div class="flex items-center space-x-2">
+                        <input type="radio" id="lowToHigh" name="sortPrice" value="lowToHigh" class="form-radio text-blue-600">
+                        <label for="lowToHigh" class="text-black">Low to High</label>
+                    </div>
+                </fieldset>
+                <fieldset class="space-y-3">
+                    <legend class="font-semibold">Sort by Collection</legend>
+        
+                    <div class="flex items-center space-x-2">
+                        <input type="radio" id="newToOld" name="sortCollection" value="newToOld" class="form-radio text-blue-600">
+                        <label for="newToOld" class="text-black">New to Old</label>
+                    </div>
+        
+                    <div class="flex items-center space-x-2">
+                        <input type="radio" id="oldToNew" name="sortCollection" value="oldToNew" class="form-radio text-blue-600">
+                        <label for="oldToNew" class="text-black">Old to New</label>
+                    </div>
+                </fieldset>
+        
+                <button type="submit" 
+                    class="px-6 py-3 bg-stone-900 text-white rounded-lg hover:bg-blue-700">
+                    Sort
+                </button>
+            </form>
+
+        </div>
+    </div>
+
+    <% if(firstDivProducts.length === 0){ %>
+        <div class="flex h-full justify-center pt-40">
+            <h1 class="text-stone-500 text-xl">No such Products Found</h1>
+        </div>
+        <% }else {%>
+            <div class="container w-full flex gap-4 pt-3">
+                <div class="w-45p pt-3 h-full">
+                    <% firstDivProducts.forEach(product => { %>
+                        <div class="bg-stone-100 .h-80p w-full rounded-3xl mb-5 p-3 pl-4">
+                            <div class="flex justify-between items-center">
+                                <h1 class="tracking-tighter leading-tight text-lg mb-3"><%= product.name %></h1>
+                            </div>
+                            <div class="h-3/5 m-0 p-0 flex justify-center items-center mb-2">
+                                <img src="/images/uploads/<%= product.bagimg %>" class="h-full">
+                            </div>
+                            <div class="flex justify-between items-center w-full pt-2 mb-2">
+                                <div>
+                                    <h2>₹ <%= product.price %></h2>
+                                    <% if(product.discount>0){ %>
+                                        <h2 class="bg-stone-500 text-stone-200 px-1 p-0 block rounded-md w-12 text-xs">
+                                            <% 
+                                                const discountPercentage = ( product.discount / product.price) * 100;
+                                                const roundedDiscountPercentage = Math.round(discountPercentage); 
+                                            %>
+                                            - <%= roundedDiscountPercentage %>
+                                            %</h2>
+                                        <% } %>
+                                    
+                                </div>
+                                <%if(user.cart.includes(product._id)) { %>
+                                    <a href="/user/remove/<%= product._id %>"><i class="ri-check-double-line bg-stone-100 border border-stone-900 rounded-full text-stone-900 text-xl p-3 font-normal"></i></a>
+                                    <% } else {%>
+                                <a href="/user/add/<%= product._id %>"><i class="ri-shopping-cart-line bg-stone-900 rounded-full text-stone-100 text-xl p-3 font-normal"></i></a>
+                                  <%  } %>
+                            </div>
+                        </div>
+                    <% }) %>
+                </div>
+            <div class="w-45p h-full pb-20 pt-16">
+                    <% secondDivProducts.forEach(product => { %>
+                        <div class="bg-stone-100 .h-80p w-full rounded-3xl mb-5 p-3 pl-4">
+                            <div class="flex justify-between items-center">
+                                <h1 class="tracking-tighter leading-tight text-lg mb-3"><%= product.name %></h1>
+                            </div>
+                            <div class="h-3/5 m-0 p-0 flex justify-center items-center mb-2">
+                                <img src="/images/uploads/<%= product.bagimg %>" class="h-full">
+                            </div>
+                            <div class="flex justify-between items-center w-full pt-2 mb-2">
+                                <div>
+                                    <h2>₹ <%= product.price %></h2>
+                                    <% if(product.discount>0){ %>
+                                        <h2 class="bg-stone-500 text-stone-200 px-1 p-0 block rounded-md w-12 text-xs">
+                                            <% 
+                                                const discountPercentage = ( product.discount / product.price) * 100;
+                                                const roundedDiscountPercentage = Math.round(discountPercentage); 
+                                            %>
+                                            - <%= roundedDiscountPercentage %>
+                                            %</h2>
+                                        <% } %>
+                                    
+                                </div>
+                                <%if(user.cart.includes(product._id)) { %>
+                                    <a href="/user/remove/<%= product._id %>"><i class="ri-check-double-line bg-stone-100 border border-stone-900 rounded-full text-stone-900 text-xl p-3 font-normal"></i></a>
+                                    <% } else {%>
+                                <a href="/user/add/<%= product._id %>"><i class="ri-shopping-cart-line bg-stone-900 rounded-full text-stone-100 text-xl p-3 font-normal"></i></a>
+                                  <%  } %>
+                            </div>
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+            <%  }%>
+   
+    <%- include('../partials/navbar') %>
+    <script src="/js/filter.js"></script>
+</body>
+</html>

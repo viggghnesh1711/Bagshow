@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/fonts.css">
+    <!-- <link rel="stylesheet" href="/styles/style.css"> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,200,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,200,0,0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+</head>
+<body class="bg-stone-200 py-4 px-6 relative h-screen overflow-y-auto">
+    <div class="mb-4 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+        <a href="/home"><i class="ri-arrow-left-s-line text-xl  bg-stone-900 p-1 rounded-lg text-stone-100" ></i></a>
+      </div>
+        <div class="flex h-8 items-end gap-0 relative">
+        <h1 class="text-stone-900 tracking-tighter">COUNTER</h1>
+        <img src="/images/shopping-bag.png" class="h-full">
+        </div>
+      </div>  
+      <form method="post" action="/user/create-order">
+      <div class="flex flex-col gap-4 overflow-y-auto h-4/5 pb-32  relative">
+        <% if(cart && cart.length>0){ %>
+          <% products.forEach(function(product){ %>
+            <div class="w-full rounded-lg bg-stone-300 flex py-2 items-center justify-between pr-4 ">
+              <div class="w-2/5 x-3 ">
+                 <img src="/images/uploads/<%= product.bagimg %>">
+                </div>
+                 <div class="w-2/4 flex flex-col justify-between pr-2">
+                     <div class=" flex flex-col justify-evenly gap-3">
+                      <div>
+                     <h1 class="tracking-tight"><%= product.name %></h1>
+                     <h2 class=""></h2>₹ <%= product.price-product.discount %>
+                    </div>
+                     <a href="/user/removecart/<%=product._id%>" class="text-red-600 text-sm ">Remove</a>
+                     </div>
+                 </div>
+                 <div class="quantity-container bg-stone-300 flex flex-col items-center border-none">
+                  <button type="button" class="decrease quantity-button bg-stone-300 text-stone-900 font-bold rounded-md">-</button>
+                  <h1 class="quantity text-lg bg-stone-900 rounded-lg text-stone-300 px-2 text-center">1</h1>
+                  <button type="button" class="increase quantity-button bg-stone-300 text-stone-900 font-bold rounded-md">+</button>
+                    
+              <input type="hidden" name="quant" class="quantityinp" value="1">
+              <input type="hidden" name="pros" value="<%=product._id%>">
+              <input type="hidden" name="pro" value="<%=product.name%>">
+              <input type="hidden" name="price" value="<%=product.price - product.discount%>">
+              <div class=" fixed bottom-20 m-5 left-0 right-0">
+                <input type="submit" class="bg-stone-800 text-stone-100 rounded-lg w-full text-center py-2 mt-7" value="Proceed">
+              </div>
+              </div>   
+             </div>  
+          <% }) %>
+        <% } else { %>
+          <div class="w-full pt-28 text-center flex justify-center items-center flex-col gap-2 text-stone-500 text-lg">
+            <h1>Why to be normal ?<br>
+              when you can be the best
+            </h1>
+            <a href="/home" class="px-4 py-1 w-32 rounded-lg text-stone-100 bg-stone-900 mt-10 ">Let's go </a>
+          </div>
+
+        <% } %>
+      </div>
+      
+    </form>
+    <%- include('../partials/navbar') %>
+    <script src="/js/cart.js"></script>
+</body>
+</html>

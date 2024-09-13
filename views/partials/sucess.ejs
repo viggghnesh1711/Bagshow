@@ -1,0 +1,7 @@
+<% if (messages.length > 0) { %>
+    <% messages.forEach(function(message) { %>
+      <div class="absolute top-20 left-1/2 transform -translate-x-1/2 text-center w-3/5 bg-green-500 text-white py-1 px-2 rounded-lg ">
+        <h2 class="text-sm"><%= message %></h2>
+      </div>
+    <% }); %>
+<% } %>

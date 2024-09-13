@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/fonts.css">
+    <!-- <link rel="stylesheet" href="/styles/style.css"> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,200,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,200,0,0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+</head>
+<body class="bg-stone-200 py-2 px-8 relative h-screen overflow-y-auto"> 
+    <div class="mb-4 flex items-center justify-between">
+      <a href="/owner/ownerprofile"><i class="ri-arrow-left-s-line text-xl  bg-stone-900 p-1 rounded-lg text-stone-100" ></i></a>
+      <div class="flex h-8 items-end gap-0 relative">
+      <h1 class="text-stone-900 tracking-tighter">COUNTER</h1>
+      <img src="/images/shopping-bag.png" class="h-full">
+      </div>
+  </div>
+        <form action="/product/update/<%= product._id%>" method="post" enctype="multipart/form-data" class="flex flex-col gap-7 py-3" >
+            <div class="flex flex-col gap-2">
+              <h2 class="text-stone-600">Shopname :</h2>
+              <input type="text" value="<%= owner.shopname %>" name="shopname" class=" text-stone-900 border-none bg-stone-300 w-full px-4 py-2 rounded-lg text-xl focus:outline-none focus:ring-2 focus:ring-stone-600 /">
+            </div>
+            <div class="flex flex-col justify-between items-start gap-2 mt-2">
+              <h2 class="text-stone-600">Bag name :</h2>
+              <input type="text" name="name" placeholder="" value="<%= product.name %>" class="tracking-tighter text-stone-900 border-none bg-stone-300 w-full px-4 py-2 rounded-lg text-xl focus:outline-none focus:ring-2 focus:ring-stone-600 required /">
+            </div>
+            <div class="flex flex-col justify-between items-start gap-2 mt-2">
+              <h2 class="text-stone-600">Description :</h2>
+              <textarea type="text" name="description" class="tracking-tighter text-stone-900 border-none bg-stone-300 w-full px-4 py-2 rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-stone-600 h-20 required "><%= product.description %></textarea>
+            </div>
+            <div class="py-3 flex flex-col gap-2">
+              <h2 class="text-stone-600">Upload Image (.png only)</h2>
+              <input type="file" name="bagimg" accept=".png" id="file-input" class="hidden"/>
+              <button type="button" id="custom-button" class="bg-blue-500 text-white py-2 px-4 rounded focus:outline-none">
+                Choose File
+            </button>
+            <span id="custom-text" class="text-gray-600"><%= product.bagimg || 'No file chosen' %></span>
+              <h2 class="text-red-500 text-xs" ><%= imgerr %></h2>
+            </div>
+            <div class="flex flex-col gap-2">
+              <h2 class="text-stone-600">Type:</h2>
+              <div class="flex gap-3 w-full flex-wrap">
+                <label class="flex items-center cursor-pointer">
+                    <input type="radio" name="type" value="Backpacks" class="hidden peer" <%=  product.type=== 'Backpacks' ? 'checked' : '' %> required>
+                    <span class="px-4 py-2 border rounded-lg text-center text-stone-600 bg-stone-300 peer-checked:bg-stone-800 peer-checked:text-white text-sm">Backpacks</span>
+                </label>
+                <label class="flex items-center cursor-pointer">
+                    <input type="radio" name="type" value="Handbags" class="hidden peer" <%=  product.type=== 'Handbags' ? 'checked' : '' %> required>
+                    <span class="px-4 py-2 border rounded-lg text-center text-stone-600 bg-stone-300 peer-checked:bg-stone-800 peer-checked:text-white text-sm">Handbags</span>
+                </label>
+                <label class="flex items-center cursor-pointer">
+                    <input type="radio" name="type" value="Suitcases" class="hidden peer" <%=  product.type=== 'Suitcases' ? 'checked' : '' %> required>
+                    <span class="px-4 py-2 border rounded-lg text-center text-stone-600 bg-stone-300 peer-checked:bg-stone-800 peer-checked:text-white text-sm">Suitcases</span>
+                </label>
+                <label class="flex items-center cursor-pointer">
+                    <input type="radio" name="type" value="Duffelbags" class="hidden peer" <%=  product.type=== 'Duffelbags' ? 'checked' : '' %> required>
+                    <span class="px-4 py-2 border rounded-lg text-center text-stone-600 bg-stone-300 peer-checked:bg-stone-800 peer-checked:text-white text-sm">DuffelBags</span>
+                </label>
+                <label class="flex items-center cursor-pointer">
+                    <input type="radio" name="type" value="Luggagebags" class="hidden peer" <%=  product.type=== 'Luggagebags' ? 'checked' : '' %> required>
+                    <span class="px-4 py-2 border rounded-lg text-center text-stone-600 bg-stone-300 peer-checked:bg-stone-800 peer-checked:text-white text-sm">Luggagebags</span>
+                </label>
+                <label class="flex items-center cursor-pointer">
+                    <input type="radio" name="type" value="Laptopbags" class="hidden peer" <%=  product.type=== 'laptopbags' ? 'checked' : '' %>required>
+                    <span class="px-4 py-2 border rounded-lg text-center text-stone-600 bg-stone-300 peer-checked:bg-stone-800 peer-checked:text-white text-sm">Laptopbags</span>
+                </label>
+                <label class="flex items-center cursor-pointer">
+                    <input type="radio" name="type" value="others" class="hidden peer" <%=  product.type=== 'Others' ? 'checked' : '' %>required>
+                    <span class="px-4 py-2 border rounded-lg text-center text-stone-600 bg-stone-300 peer-checked:bg-stone-800 peer-checked:text-white text-sm">Others</span>
+                </label>
+              </div>
+            </div>
+            <div class="flex flex-col gap-2">
+              <h2 class="text-stone-600">User :</h2>
+              <div class="flex gap-3 w-full flex-wrap">
+                  <label class="flex items-center cursor-pointer">
+                      <input type="radio" name="usertype" value="Men" class="hidden peer " <%=  product.usertype=== 'Men' ? 'checked' : '' %> required>
+                      <span class="px-4 py-2 border rounded-lg text-center text-stone-600 bg-stone-300 peer-checked:bg-stone-800 peer-checked:text-white text-sm">Men</span>
+                  </label>
+                  <label class="flex items-center cursor-pointer">
+                      <input type="radio" name="usertype" value="Women" class="hidden peer" <%=  product.usertype=== 'Women' ? 'checked' : '' %> required>
+                      <span class="px-4 py-2 border rounded-lg text-center text-stone-600 bg-stone-300 peer-checked:bg-stone-800 peer-checked:text-white text-sm">Women</span>
+                  </label>
+                  <label class="flex items-center cursor-pointer">
+                      <input type="radio" name="usertype" value="Both" class="hidden peer" <%= product.usertype === 'Both' ? 'checked' : '' %> required>
+                      <span class="px-4 py-2 border rounded-lg text-center text-stone-600 bg-stone-300 peer-checked:bg-stone-800 peer-checked:text-white text-sm">Both</span>
+                  </label>
+              </div>
+          </div>
+            <div class="flex flex-col justify-between items-start gap-2 mt-2">
+              <h2 class="text-stone-600">Price (in rupees) :</h2>
+              <input type="number" name="price" placeholder="0.00" value="<%= product.price %>" class="tracking-wider text-stone-900 border-none bg-stone-300 w-full px-4 py-2 rounded-lg text-xl focus:outline-none focus:ring-2 focus:ring-stone-600 required /">
+            </div>
+            <div class="flex flex-col justify-between items-start gap-2 mt-2">
+                <h2 class="text-stone-600">Discountprice (if applicable) :</h2>
+              <input type="text" name="discount"  value="<%= product.discount %>" class="tracking-wider text-stone-900 border-none bg-stone-300 w-full px-4 py-2 rounded-lg text-xl focus:outline-none focus:ring-2 focus:ring-stone-600">
+            </div>
+            <input type="submit" value="Update" class="text-lg my-5 w-full py-3 bg-stone-900 text-stone-100 rounded-xl mb-5">
+          </form>
+          <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const realFileInput = document.getElementById('file-input');
+                const customButton = document.getElementById('custom-button');
+                const customText = document.getElementById('custom-text');
+    
+                // When custom button is clicked, trigger the file input click
+                customButton.addEventListener('click', function() {
+                    realFileInput.click();
+                });
+    
+                // When a file is selected, update the custom text with the file name
+                realFileInput.addEventListener('change', function() {
+                    if (realFileInput.files.length > 0) {
+                        customText.textContent = realFileInput.files[0].name;
+                    } else {
+                        customText.textContent = 'No file chosen';
+                    }
+                });
+            });
+        </script>
+</body>
+</html>

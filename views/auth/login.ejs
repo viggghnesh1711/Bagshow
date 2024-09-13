@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/fonts.css" />
+    <!-- <link rel="stylesheet" href="/styles/style.css"> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-stone-950 relative h-screen">
+    <div
+      class="absolute bottom-0 left-0 right-0 h-90p rounded-t-3xl w-full bg-stone-200 p-12"
+    >
+      <div class="p-4 mb-10">
+        <h1 class="text-stone-950 text-center text-4xl tracking-wide">
+          Sign In
+        </h1>
+        <h2
+          class="text-black text-center text-base font-light tracking-tighter"
+        >
+          lets get you in
+        </h2>
+      </div>
+      <form
+        method="post"
+        action="/user/signin"
+        class="flex flex-col gap-8 text-stone-400"
+      >
+        <div
+          class="tracking-wider text-stone-900 border-none bg-stone-300 w-full pr-2 pl-2 rounded-lg text-xl focus:outline-none focus:ring-2 focus:ring-stone-600 focus:border-transparent flex items-center"
+        >
+          <i class="ri-mail-fill text-stone-400"></i>
+          <input
+            type="email"
+            placeholder="Email"
+            name="email"
+            value="<%= email %>"
+            class="bg-stone-300 w-full p-3 rounded-lg text-xl focus:outline-none"
+          />
+        </div>
+        <div
+          class="tracking-wider text-stone-900 border-none bg-stone-300 w-full pr-2 pl-2 rounded-lg text-xl flex items-center justify-between"
+        >
+          <div class="flex items-center">
+            <i class="ri-lock-fill text-stone-400"></i>
+            <input
+              type="password"
+              placeholder="password"
+              name="password"
+              value="<%= password %>"
+              class="bg-stone-300 w-full p-3 rounded-lg text-xl focus:outline-none"
+            />
+          </div>
+          <div><i class="ri-eye-fill text-stone-400 text-2xl"></i></div>
+        </div>
+        <h2 class="text-red-400 tracking-tighter text-sm absolute top-80">
+          <%= errorpassword %>
+        </h2>
+        <input
+          type="submit"
+          value="Sign In"
+          class="mt-10 bg-stone-800 text-xl text-stone-200 block p-2 rounded-lg"
+        />
+        <a href="/user/register" class="text-stone-900 text-center text-base"
+          ><h2>
+            Dont have an Account?
+            <span class="text-blue-400 underline">Sign Up</span>
+          </h2></a
+        >
+      </form>
+    </div>
+  </body>
+</html>

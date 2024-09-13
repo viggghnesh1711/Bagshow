@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/fonts.css">
+    <!-- <link rel="stylesheet" href="/styles/style.css"> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,200,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,200,0,0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+
+<body class="bg-stone-300 relative p-4 pb-0 overflow-y-auto h-full">
+  <div class="mb-4 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+    <a href="/user/cart"><i class="ri-arrow-left-s-line text-xl  bg-stone-900 p-1 rounded-lg text-stone-100" ></i></a>
+  </div>
+    <div class="flex h-8 items-end gap-0 relative">
+    <h1 class="text-stone-900 tracking-tighter">COUNTER</h1>
+    <img src="/images/shopping-bag.png" class="h-full">
+    </div>
+  </div>  
+
+  <div class="bg-stone-300 border-none rounded-lg shadow-lg px-6 py-8 max-w-md mx-auto mt-8">
+    <div class="mb-8">
+        <h2 class="text-lg font-bold mb-4">Bill To:</h2>
+        <div class="text-gray-700 mb-2"><%= order.name %></div>
+        <div class="text-gray-700 mb-2"><%= order.contact %></div>
+        <div class="text-gray-700"><%= order.email %></div>
+    </div>
+    <table class="w-full mb-8">
+        <thead>
+            <tr>
+                <th class="text-left font-bold text-gray-700">Description</th>
+                <th class="text-right font-bold text-gray-700">Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+          <% products.forEach(function(product){ %>
+            <tr>
+              <td class="text-left text-gray-700"><%= product.name %></td>
+              <td class="text-right text-gray-700"><%= product.price %></td>
+          </tr>
+         <%  }) %>
+          
+        </tbody>
+        <tfoot>
+            <tr>
+                <td class="text-left font-bold text-gray-700">Total</td>
+                <td class="text-right font-bold text-gray-700"><%= total %></td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+<div>
+<div class="flex justify-center items-center w-full bg-stone-900 text-stone-100 py-2 rounded-lg">
+    <form action="/user/verify" method="POST">
+      <script 
+        src="https://checkout.razorpay.com/v1/checkout.js"
+        data-key="<%= key_id %>" 
+        data-amount="<%= amount %>"  
+        data-currency="INR"
+        data-order_id="<%= order_id %>"  
+        data-buttontext="Pay with Razorpay"
+        data-name="Counter"
+        data-description="Lets connect for more"
+        data-image="https://example.com/your_logo"
+        data-prefill.name="<%= order.name %>"
+        data-prefill.contact="<%= order.contact %>"
+        data-prefill.email="<%= order.email %>
+        data-theme.color="#000000"
+      ></script>
+      <input type="hidden" name="order" value="<%= order._id %>"
+      <input type="hidden" name="order_id" value="<%= order_id %>">
+    </form>
+  </div>
+  <div class="flex justify-center items-center w-full bg-stone-300 text-stone-900 py-2 border-2 border-stone-900 rounded-lg mt-10">
+    <a href="/user/cancelorder"><h1>Cancel order</h1></a>
+  </div>
+  </body>
+  
+</body>
+</html>

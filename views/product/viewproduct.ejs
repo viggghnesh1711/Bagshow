@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/fonts.css">
+    <!-- <link rel="stylesheet" href="/styles/style.css"> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,200,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,200,0,0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+</head>
+
+<body class="bg-stone-300 relative pb-0 overflow-y-auto h-full">
+    <div class="relative h-screen">
+        <div class="mb-4  p-4 flex items-center justify-between">
+            <a href="/home"><i class="ri-arrow-left-s-line text-xl  bg-stone-900 p-1 rounded-lg text-stone-100" ></i></a>
+            <div class="flex h-8 items-end gap-0 relative">
+            <h1 class="text-stone-900 tracking-tighter">COUNTER</h1>
+            <img src="/images/shopping-bag.png" class="h-full">
+            </div>
+        </div>
+        <div class="p-4">
+            <img src="/images/uploads/<%= product.bagimg %>">
+        </div>
+      
+        <div class="bg-stone-200 absolute bottom-0 right-0 left-0  p-4 py-10 rounded-t-xl" style="box-shadow: 0 -10px 15px -3px rgba(0, 0, 0, 0.1), 0 -4px 6px -2px rgba(0, 0, 0, 0.05);">
+            <div class=" flex justify-between items-center">
+            <h1 class="text-2xl tracking-wide mb-2"><%= product.name %></h1>
+            <%if(user.whishlist.includes(product._id)) { %>
+                <a href="/user/removewhishlist/<%= product._id %>"><i class="ri-heart-fill text-xl"></i></a>
+                <% } else {%>
+            <a href="/user/addwhishlist/<%= product._id %>"><i class="ri-heart-line text-xl"></i></a>
+              <%  } %>
+           </div>
+            <h2 class="text-stone-600 text-base mb-4 tracking-tighter leading-tight"><%= product.description %>.Stylish and versatile, our bags are designed with both fashion and functionality in mind</h2>
+            <div class="flex justify-between items-center">
+            <div class="">
+                   <div class="flex gap-2">
+                <h1>Type :</h1>
+                <h2 class=" text-stone-600 "><%= product.type %></h2>
+            </div>
+            <div class="flex gap-2">
+                <h1>User :</h1>
+                <h2 class=" text-stone-600 "><%= product.usertype %></h2>
+            </div>
+            </div>
+            <div class="">
+            <h2 class="text-xl">₹ <%= product.price %></h2>
+            <% if(product.discount>0){ %>
+                <h2 class="bg-stone-500 text-stone-200 px-1 p-0 block rounded-md  text-base">
+                    <% 
+                        const discountPercentage = ( product.discount / product.price) * 100;
+                        const roundedDiscountPercentage = Math.round(discountPercentage); 
+                    %>
+                    - <%= roundedDiscountPercentage %>
+                    %</h2>
+                <% } %>
+            </div>
+            </div>
+            <%if(user.cart.includes(product._id)) { %>
+                <a href="/user/removeproduct/<%= product._id %>"><h1 class="text-center w-full py-3 rounded-xl text-stone-900 bg-stone-200 border-2 border-black mt-5">Reoved from cart</h1></a>
+                <% } else {%>
+            <a href="/user/addproduct/<%= product._id %>"><h1 class="text-center w-full py-3 rounded-xl bg-stone-900 text-stone-300 mt-5">Add to cart</h1></a>
+              <%  } %>
+            <a href="" ></a>
+        </div> 
+    </div>
+</body>
+</html>

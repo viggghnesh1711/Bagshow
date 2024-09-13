@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/fonts.css">
+    <!-- <link rel="stylesheet" href="/styles/style.css"> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,200,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,200,0,0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+</head>
+
+<body class="bg-stone-300 relative p-4  overflow-y-auto h-full">
+    <div class="mb-0 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+        <a href="/user/userprofile"><i class="ri-arrow-left-s-line text-xl  bg-stone-900 p-1 rounded-lg text-stone-100" ></i></a>
+      </div>
+        <div class="flex h-8 items-end gap-0 relative">
+        <h1 class="text-stone-900 tracking-tighter">COUNTER</h1>
+        <img src="/images/shopping-bag.png" class="h-full">
+        </div>
+      </div>  
+      <div class="container mx-auto p-6 mb-5"></div>
+        <header class="mb-6">
+            <h1 class="text-2xl font-bold text-center mb-2">Welcome to Bag Shop App!</h1>
+            <p class="text-base text-center">Your go-to platform for all your bag needs.</p>
+        </header>
+
+        <section class="bg-stone-300  rounded-lg p-6 mb-6 shadow-lg">
+            <h2 class="text-xl font-semibold mb-4">About</h2>
+            <p>The Bag Shop App is your go-to online platform for browsing and purchasing a wide variety of bags. Whether you’re looking for a stylish handbag or a durable backpack, we’ve got you covered!</p>
+        </section>
+
+        <section class="bg-stone-300  rounded-lg p-6 mb-6 shadow-lg">
+            <h2 class="text-xl font-semibold mb-4">Key Features</h2>
+            <ul class="list-disc list-inside space-y-2">
+                <li><strong>User Accounts:</strong> Create and manage your profile.</li>
+                <li><strong>Product Browsing:</strong> View our extensive collection of bags.</li>
+                <li><strong>Shopping Cart:</strong> Easily add items to your cart and checkout.</li>
+                <li><strong>Flash Messages:</strong> Receive notifications about your actions.</li>
+            </ul>
+        </section>
+
+        <section class="bg-stone-300  rounded-lg p-6 mb-6 shadow-lg">
+            <h2 class="text-xl font-semibold mb-4">Getting Started</h2>
+            <ol class="list-decimal list-inside space-y-2">
+                <li><strong>Create an Account:</strong> Sign up to start shopping.</li>
+                <li><strong>Browse Products:</strong> Explore different categories and products.</li>
+                <li><strong>Add to Cart:</strong> Select items and add them to your cart.</li>
+                <li><strong>Checkout:</strong> Review your cart and complete your purchase.</li>
+            </ol>
+        </section>
+
+        <section class="bg-stone-300 mb-20 rounded-lg p-6 shadow-lg">
+            <h2 class="text-xl font-semibold mb-4">Need Help?</h2>
+            <p>If you encounter any issues or have questions, feel free to contact our support team at <a href="mailto:vighneshkachare0059@gmail.com" class="text-blue-500 hover:underline">vighneshkachare0059@gmail.com</a>.</p>
+        </section>
+    </div>
+    <%- include('../partials/navbar') %>
+    <script src="/js/filter.js"></script>
+</body>
+</html>

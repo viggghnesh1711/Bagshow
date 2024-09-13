@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/fonts.css">
+    <!-- <link rel="stylesheet" href="/styles/style.css"> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,200,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,200,0,0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+</head>
+<body class="bg-stone-950 relative h-screen overflow-y-auto">
+    <div class="rounded-t-3xl w-full bg-stone-200 p-12 pt-8 mt-24">
+    <div class="flex flex-col justify-center items-center">
+            <h1 class="text-xl tracking-wide m-4">Create owner</h1>
+        <img src="/images/download (4).jpg" class="h-20 w-20 rounded-full object-cover">
+    </div>
+    <form action="createowner" method="post" class="py-10 overflow-y-auto">
+        <h2 class="text-stone-400">Owners name</h2>
+        <input type="text" placeholder="" name="ownername" class="p-2 bg-transparent border-2 border-transparent border-b-black w-full border-b-2 border-stone-900 mb-7 focus:bg-transparent text-lg focus:border-transparent focus:border-b-black focus:outline-none">
+        <h2 class="text-stone-400">Shop name</h2>
+        <input type="text" placeholder="" name="shopname" class="p-2 bg-transparent border-2 border-transparent border-b-black w-full border-b-2 border-stone-900 mb-7 focus:border-transparent text-lg  focus:border-b-black focus:outline-none">
+        <h2 class="text-stone-400">Email same as user</h2>
+        <input type="email" placeholder="" name="email" class="p-2 bg-transparent border-2 border-transparent border-b-black w-full border-b-2 border-stone-900 mb-7 focus:border-b-black text-lg focus:border-transparent focus:outline-none">
+        <h2 class="text-stone-400">Bank Account Number</h2>
+        <input type="text" placeholder="" name="bnumber" class="p-2 bg-transparent border-2 border-transparent border-b-black w-full border-b-2 border-stone-900 mb-7 focus:border-b-black text-lg focus:border-transparent focus:outline-none">
+        <h2 class="text-stone-400">Account Holder Name</h2>
+        <input type="text" placeholder="" name="bname" class="p-2 bg-transparent border-2 border-transparent border-b-black w-full border-b-2 border-stone-900 mb-7 focus:border-b-black text-lg focus:border-transparent focus:outline-none">
+        <h2 class="text-stone-400">IFSC code</h2>
+        <input type="text" placeholder="" name="bcode" class="p-2 bg-transparent border-2 border-transparent border-b-black w-full border-b-2 border-stone-900 mb-7 focus:border-b-black text-lg focus:border-transparent focus:outline-none">
+        <input type="submit" value="create" class="text-lg my-5 w-full py-3 bg-stone-900 text-stone-100 rounded-xl">
+    </form>
+    </div>
+    <div class="fixed bottom-0 left-1/2 transform-translate-x-1/2 bg-stone-900 text-3xl px-4 py-2 text-stone-200 rounded-2xl w-full rounded-b-none">
+        <div class="flex justify-between items-center px-4 py-1">
+            <a href="/home" class="flex flex-col items-center text-stone-200 hover:text-blue-500">
+                <span class="material-symbols-outlined text-3xl">home
+                    </span>
+                <h2 class="text-xs">home</h2>
+            </a>
+            <a href="#" class="flex flex-col items-center text-stone-200 hover:text-blue-500">
+                <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <span class="text-xs">Wishlist</span>
+            </a>
+            <a href="#" class="flex flex-col items-center text-stone-200 hover:text-blue-500">
+                <span class="material-symbols-outlined">
+                    shopping_cart_checkout
+                    </span>
+                    <h2 class="text-xs">cart</h2>
+            </a>
+            <a href="/user/userprofile" class="flex flex-col items-center text-stone-200 hover:text-blue-500">
+                <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422A12.083 12.083 0 0118 12.362V21m-6 0h6"></path></svg>
+                <span class="text-xs">Profile</span>
+            </a>
+        </div>
+    </div>
+    <%- include('../partials/navbar') %>
+</body>
+</html>
