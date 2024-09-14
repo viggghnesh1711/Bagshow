@@ -50,13 +50,14 @@
             <i class="ri-lock-fill text-stone-400"></i>
             <input
               type="password"
+               id="password"
               placeholder="password"
               name="password"
               value="<%= password %>"
               class="bg-stone-300 w-full p-3 rounded-lg text-xl focus:outline-none"
             />
           </div>
-          <div><i class="ri-eye-fill text-stone-400 text-2xl"></i></div>
+          <div><i id="togglePassword" class="ri-eye-fill text-stone-400 text-2xl"></i></div>
         </div>
         <h2 class="text-red-400 tracking-tighter text-sm absolute top-80">
           <%= errorpassword %>
@@ -74,5 +75,20 @@
         >
       </form>
     </div>
+<script>
+    // Toggle password visibility
+    const togglePassword = document.querySelector("#togglePassword");
+    const password = document.querySelector("#password");
+
+    togglePassword.addEventListener("click", function () {
+      // Toggle the type attribute of the password field
+      const type = password.getAttribute("type") === "password" ? "text" : "password";
+      password.setAttribute("type", type);
+
+      // Toggle the eye icon class for a visual change
+      this.classList.toggle("ri-eye-fill");
+      this.classList.toggle("ri-eye-off-fill");
+    });
+  </script>
   </body>
 </html>
