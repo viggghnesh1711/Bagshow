@@ -29,12 +29,27 @@
             <div class="tracking-wider text-stone-900 border-none bg-stone-300 w-full pr-2 pl-2 rounded-lg text-xl flex items-center justify-between">
             <div class="flex items-center">
             <i class="ri-lock-fill text-stone-400"></i>
-            <input type="password" name="password" value="<%= password %>" placeholder="password"  class="bg-stone-300 w-full p-3 rounded-lg text-xl focus:outline-none"></div>
-            <div><i class="ri-eye-fill text-stone-400 text-2xl"></i></div>
+            <input type="password"  id="password" name="password" value="<%= password %>" placeholder="password"  class="bg-stone-300 w-full p-3 rounded-lg text-xl focus:outline-none"></div>
+            <div><i id="togglePassword" class="ri-eye-fill text-stone-400 text-2xl"></i></div>
             </div>
             <input type="submit" value="Sign Up" class="mt-10 bg-stone-800 text-xl text-stone-200 block p-2 rounded-lg ">
             <a href="/user/login" class="text-stone-900 text-center text-base"><h2>Already have an Account? <span class="text-blue-400 underline">Log in</span></h2></a>
         </form>
     </div>
+ <script>
+    // Toggle password visibility
+    const togglePassword = document.querySelector("#togglePassword");
+    const password = document.querySelector("#password");
+
+    togglePassword.addEventListener("click", function () {
+      // Toggle the type attribute of the password field
+      const type = password.getAttribute("type") === "password" ? "text" : "password";
+      password.setAttribute("type", type);
+
+      // Toggle the eye icon class for a visual change
+      this.classList.toggle("ri-eye-fill");
+      this.classList.toggle("ri-eye-off-fill");
+    });
+  </script>
 </body>
 </html>
